@@ -36,7 +36,7 @@ namespace Dnata.FlightBuilder.Api
             {
                 app.UseDeveloperExceptionPage();
                 app.UseSwagger();
-                app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "SMS Microservice v1"));
+                app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "Dnata Flight Builder"));
             }
 
             app.UseHttpsRedirection();
