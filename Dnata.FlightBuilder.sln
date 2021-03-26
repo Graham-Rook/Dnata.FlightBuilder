@@ -1,0 +1,53 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.31025.194
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Dnata.FlightBuilder.Api", "Dnata.FlightBuilder.Api\Dnata.FlightBuilder.Api.csproj", "{C7320B8D-F4C3-4B12-A8EC-B7F7F0F33ABA}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Dnata.FlightBuilder.Api.Tests", "Dnata.FlightBuilder.Api.Tests\Dnata.FlightBuilder.Api.Tests.csproj", "{668CC47E-5B45-44CC-AD2C-EE1CE5DCD524}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Dnata.FlightBuilder.App", "Dnata.FlightBuilder.App\Dnata.FlightBuilder.App.csproj", "{6CDC7315-54CA-4897-A54B-BB02AA319E76}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "API", "API", "{D6485955-85BF-4A8D-AA96-3FA1ACBF9C52}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Client", "Client", "{A382E2CB-6270-4B4B-9019-912A5F478055}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Dnata.FlightBuilder.App.Tests", "Dnata.FlightBuilder.App.Tests\Dnata.FlightBuilder.App.Tests.csproj", "{39189D19-E5BB-47BF-80A0-F87B6348C8FA}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{C7320B8D-F4C3-4B12-A8EC-B7F7F0F33ABA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C7320B8D-F4C3-4B12-A8EC-B7F7F0F33ABA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C7320B8D-F4C3-4B12-A8EC-B7F7F0F33ABA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C7320B8D-F4C3-4B12-A8EC-B7F7F0F33ABA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{668CC47E-5B45-44CC-AD2C-EE1CE5DCD524}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{668CC47E-5B45-44CC-AD2C-EE1CE5DCD524}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{668CC47E-5B45-44CC-AD2C-EE1CE5DCD524}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{668CC47E-5B45-44CC-AD2C-EE1CE5DCD524}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6CDC7315-54CA-4897-A54B-BB02AA319E76}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6CDC7315-54CA-4897-A54B-BB02AA319E76}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6CDC7315-54CA-4897-A54B-BB02AA319E76}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6CDC7315-54CA-4897-A54B-BB02AA319E76}.Release|Any CPU.Build.0 = Release|Any CPU
+		{39189D19-E5BB-47BF-80A0-F87B6348C8FA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{39189D19-E5BB-47BF-80A0-F87B6348C8FA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{39189D19-E5BB-47BF-80A0-F87B6348C8FA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{39189D19-E5BB-47BF-80A0-F87B6348C8FA}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{C7320B8D-F4C3-4B12-A8EC-B7F7F0F33ABA} = {D6485955-85BF-4A8D-AA96-3FA1ACBF9C52}
+		{668CC47E-5B45-44CC-AD2C-EE1CE5DCD524} = {D6485955-85BF-4A8D-AA96-3FA1ACBF9C52}
+		{6CDC7315-54CA-4897-A54B-BB02AA319E76} = {A382E2CB-6270-4B4B-9019-912A5F478055}
+		{39189D19-E5BB-47BF-80A0-F87B6348C8FA} = {A382E2CB-6270-4B4B-9019-912A5F478055}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {05AEE5BE-C279-4E13-A304-63ECBBBBEF99}
+	EndGlobalSection
+EndGlobal
