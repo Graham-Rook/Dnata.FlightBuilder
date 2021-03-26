@@ -11,7 +11,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Dnata.FlightBuilder.App", "
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "API", "API", "{D6485955-85BF-4A8D-AA96-3FA1ACBF9C52}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Client", "Client", "{A382E2CB-6270-4B4B-9019-912A5F478055}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "App", "App", "{A382E2CB-6270-4B4B-9019-912A5F478055}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Dnata.FlightBuilder.App.Tests", "Dnata.FlightBuilder.App.Tests\Dnata.FlightBuilder.App.Tests.csproj", "{39189D19-E5BB-47BF-80A0-F87B6348C8FA}"
 EndProject

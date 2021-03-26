@@ -8,16 +8,57 @@ using Newtonsoft.Json;
 using Polly;
 using System;
 using System.Collections.Generic;
-using System.Net.Http;
-using System.Text;
 
 namespace Dnata.FlightBuilder.App
 {
     class Program
     {
         static void Main(string[] args)
+        {             
+            //setup services and configuration
+            var apiHelper = BuildServiceProvider().GetService<IApiHelper>();
+
+            var requestModel = new FilterRequestModel
+            {
+                DepartureDateStart = DateTime.Now,
+                GroundedHours = 2
+            };
+
+            Console.WriteLine("Search flights with default criteria (today's date and 2 hours for the grounded range) (Y/N)?");
+
+            var response = Console.ReadLine();
+
+            switch (response.ToLower())
+            {
+                case "y"://default flight filter search                   
+                    ExecuteFlightSearch(apiHelper, requestModel);
+                    break;
+                case "n"://custom input
+                    Console.WriteLine($"Please enter grounded range:");
+                    var groundedRange = 0.0;
+                    double.TryParse(Console.ReadLine(), out groundedRange);
+
+                    Console.WriteLine($"Please enter date (yyyy-MM-dd):");
+                    var enteredDate = DateTime.Now;
+                    DateTime.TryParse(Console.ReadLine(), out enteredDate);
+
+                    requestModel.DepartureDateStart = enteredDate;
+                    requestModel.GroundedHours = groundedRange;
+
+                    ExecuteFlightSearch(apiHelper, requestModel);
+                    break;
+                default:
+                    Console.WriteLine("Invalid Option");
+                    break;
+            }
+        }
+
+        /// <summary>
+        /// Build Service Provider
+        /// </summary>
+        /// <returns></returns>
+        private static IServiceProvider BuildServiceProvider()
         {
-            #region Setup
             //setup configuration
             var config = new ConfigurationBuilder()
                 .AddJsonFile("appsettings.json", true, true)
@@ -32,53 +73,15 @@ namespace Dnata.FlightBuilder.App
             }).AddTransientHttpErrorPolicy(x => x.WaitAndRetryAsync(3, _ => TimeSpan.FromMilliseconds(300)));
 
             //setup service provider
-            IServiceProvider serviceProvider = services.BuildServiceProvider();
-            var apiHelper = serviceProvider.GetService<IApiHelper>();
-            #endregion
-
-            Console.WriteLine("Search flights with default criteria (today's date and 2 hours for the grounded range) (Y/N)?");
-
-            var response = Console.ReadLine();
-
-            switch (response.ToLower())
-            {
-                case "y"://default flight filter search
-                    var defaultModel = new FilterRequestModel
-                    {
-                        DepartureDateStart = DateTime.Now,
-                        GroundedHours = 2
-                    };
-                    ExecuteFlights(apiHelper, defaultModel);
-                    break;
-                case "n"://custom input
-
-                    Console.WriteLine($"Please enter grounded range:");
-                    var groundedRange = 0.0;
-                    double.TryParse(Console.ReadLine(), out groundedRange);
-
-                    Console.WriteLine($"Please enter date (yyyy-MM-dd):");
-                    var enteredDate = DateTime.Now;
-                    DateTime.TryParse(Console.ReadLine(), out enteredDate);
-
-                    var model = new FilterRequestModel
-                    {
-                        DepartureDateStart = enteredDate,
-                        GroundedHours = groundedRange
-                    };
-                    ExecuteFlights(apiHelper, model);
-                    break;
-                default:
-                    Console.WriteLine("Invalid Option");
-                    break;
-            }
+            return services.BuildServiceProvider();
         }
 
         /// <summary>
-        /// Execute Flights
+        /// Execute Flight Search
         /// </summary>
         /// <param name="apiHelper"></param>
         /// <param name="requestModel"></param>
-        private static void ExecuteFlights(IApiHelper apiHelper, FilterRequestModel requestModel)
+        private static void ExecuteFlightSearch(IApiHelper apiHelper, FilterRequestModel requestModel)
         {
             var flightHandler = new FlightHandler(apiHelper);
 
@@ -103,14 +106,12 @@ namespace Dnata.FlightBuilder.App
                         Console.WriteLine($"Arrival: {segments[s].ArrivalDate.ToString("yyyy-MM-dd :HH:mm")}");
                         Console.WriteLine("======================================");
 
-                        if (s+1 % 2 != 0)
+                        if (s + 1 % 2 != 0)
                         {
                             Console.WriteLine("            __|__            ");
                             Console.WriteLine("     --@--@--(_)--@--@--     ");
                         }
-
                     }
-                   
                 }
             }
             else

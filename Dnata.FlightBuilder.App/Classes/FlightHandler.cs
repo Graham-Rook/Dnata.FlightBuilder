@@ -1,7 +1,6 @@
 ﻿using Dnata.FlightBuilder.App.Interfaces;
 using Dnata.FlightBuilder.App.Models;
 using Dnata.FlightBuilder.App.Shared;
-using System.Collections.Generic;
 using System.Net.Http;
 
 namespace Dnata.FlightBuilder.App.Classes
