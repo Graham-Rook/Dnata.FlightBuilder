@@ -7,7 +7,7 @@ In the solution there is:
 3.	A Console App, this app connects to the API at runtime to retrieve the search results.
 4.	An App Test Project – This includes the tests for the console app.
 
-##Prerequisites:
+## Prerequisites:
 1. .net Framework 5.0 is required to run the project (the latest version of Visual Studio includes this)
 
 ## Executing the code
