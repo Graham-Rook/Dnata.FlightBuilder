@@ -1,6 +1,6 @@
 ## Project Description
 Dnata Flight Search Console application with API
-In the solution there is:
+- In the solution there is:
 1.	An API project, this implements all the logic for searching the flights with the required rules indicated in the test.
 	- Running this project will open the web browser with a swagger doc exposing the endpoint for testing purposes.
 2.	An API Test Project – This includes all the tests for the API.
