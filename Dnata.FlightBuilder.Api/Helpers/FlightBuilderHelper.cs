@@ -43,7 +43,9 @@ namespace Dnata.FlightBuilder.Api.Helpers
             var arrivalDates = dates.Where((date, index) => index % 2 == 1);
 
             var segments = departureDates
-                .Zip(arrivalDates, (departureDate, arrivalDate) => new Segment { DepartureDate = departureDate, ArrivalDate = arrivalDate })
+                .Zip(arrivalDates, (departureDate, arrivalDate) => 
+                new Segment { DepartureDate = departureDate, 
+                                ArrivalDate = arrivalDate })
                 .ToList();
 
             return new Flight { Segments = segments };

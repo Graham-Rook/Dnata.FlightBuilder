@@ -3,7 +3,9 @@ using Dnata.FlightBuilder.Api.Models;
 using Dnata.FlightBuilder.Api.Shared;
 using Microsoft.AspNetCore.Mvc;
 using System;
+using System.Collections.Generic;
 using System.Linq;
+using System.Linq.Expressions;
 
 namespace Dnata.FlightBuilder.Api.Controllers
 {
@@ -45,10 +47,30 @@ namespace Dnata.FlightBuilder.Api.Controllers
                 
                 validresult.Result = query.ToList();
 
+                //alterntive list of options
+                var queries = new List<Func<Flight, bool>>();
+                queries.Add(x => x.Segments.Any(s => s.DepartureDate >= DateTime.Now));
+                var result = FindFlightsV2(queries); 
+                
+
                 return Ok(validresult);
             }
 
             return BadRequest(validresult);
+        }
+
+
+        [HttpPost("FindFlights/v2")]
+        public IActionResult FindFlightsV2([FromBody]List<Func<Flight, bool>> requestModel)
+        {
+            var flights = _flightBuider.GetFlights();
+            requestModel.ForEach(x =>
+            {
+                flights.Where(x);
+            });
+            var result = flights.ToList();
+
+            return Ok(result);
         }
 
 
